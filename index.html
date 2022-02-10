@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet"> 
+    <script type="text/javascript" src="js.js"></script>
+</head>
+<body>
+    <h1 class="title">Stopwatch</h1>
+    <div class="container">
+        <div class="box">
+            <div class="timer-box">
+                <h1 id= 'time'>00:00:00</h1>
+            </div>
+            <div class='play-pause'>
+                <button id ='start' value="play" ><img id='play-stop' src="img/play.png"></button>
+                <button id = 'laps-recorder'><img src="img/stopwatch.png"></button>
+                <button id = 'restart'><img src="img/refresh.png"></button>
+            </div>
+            <script src="index.js"></script>
+        </div>
+        <div>
+            <ul id = 'laps-list'>
+            </ul>
+        </div>
+    </div>    
+</body>
+
+
+</html>

@@ -1,0 +1,92 @@
+body{
+    margin: 0;
+    background-image: url(./img/blue-background.jpg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+}
+.title{
+    display: flex;
+    margin-top: 70px;
+    font-family: 'Nunito Sans', sans-serif;
+    color: white;
+    font-size: 100px;;
+}
+
+.container{
+  border: 1px solid;
+  border-radius:10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 530px;
+  background-color: white;
+  opacity : 90%;
+
+  
+}
+
+#time{
+    display:inline-block;
+    font-family: 'Inconsolata', monospace;
+    font-size:65px;
+    
+}
+
+.timer-box{
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px ;
+    
+}
+
+button{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 48%;
+    opacity: 20%ß;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    text-align: center;
+    
+}
+img:hover{
+  width:45px;
+}
+
+button:hover{
+    width:50px;
+    transition-duration: 0.1s
+}
+img{
+    width:40px;
+    
+
+}
+.play-pause{
+    display: flex;
+    justify-content: space-between;
+
+}
+ul{
+    font-family: 'Inconsolata', monospace;
+    font-size: 33px;
+    list-style-type: '-';
+    margin-left: 90px;
+    margin-bottom: 50px;
+}
+@media (max-width: 800px) {
+    .title {
+      font-size: 60px;
+    }
+    .container{
+        width: 300px;
+    }
+}
