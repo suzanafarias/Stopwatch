@@ -4,18 +4,17 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    
-}
-.title{
+ }
+
+ .title{
     display: flex;
     margin-top: 70px;
     font-family: 'Nunito Sans', sans-serif;
     color: white;
     font-size: 100px;;
-}
-
-.container{
+ }
+  
+ .container{
   border: 1px solid;
   border-radius:10px;
   display: flex;
@@ -24,25 +23,25 @@ body{
   width: 530px;
   background-color: white;
   opacity : 90%;
-
+  }
   
-}
-
-#time{
+ #time{
     display:inline-block;
     font-family: 'Inconsolata', monospace;
     font-size:65px;
-    
-}
-
-.timer-box{
+ }
+  
+ .timer-box{
     display: flex;
     flex-direction: row;
-    margin-top: 30px ;
-    
-}
+    margin-top: 30px ;  
+ }
+  
+.firstLi{
+    display: none;
+} 
 
-button{
+ button{
     display: inline-block;
     width: 50px;
     height: 50px;
@@ -55,38 +54,52 @@ button{
     overflow: hidden;
     outline:none;
     text-align: center;
-    
-}
-img:hover{
+   
+ }
+ img:hover{
   width:45px;
-}
-
-button:hover{
+ }
+  
+ button:hover{
     width:50px;
     transition-duration: 0.1s
-}
-img{
+ }
+ img{
     width:40px;
-    
-
-}
-.play-pause{
+   
+  
+ }
+ .play-pause{
     display: flex;
     justify-content: space-between;
+  
+ }
 
-}
-ul{
+ #error-menssage{
+    color: rgb(175, 8, 8);
+    display: none;
+    font-family: 'Inconsolata', monospace;
+    margin-left: 180px;
+    margin-bottom: 10px;
+    
+ }
+
+ ul{
     font-family: 'Inconsolata', monospace;
     font-size: 33px;
     list-style-type: '-';
     margin-left: 90px;
-    margin-bottom: 50px;
-}
-@media (max-width: 800px) {
+    margin-bottom: 80px;
+    margin-top: 10px;
+ }
+
+ @media (max-width: 800px) {
     .title {
       font-size: 60px;
     }
     .container{
         width: 300px;
     }
-}
+ }
+
+ 
