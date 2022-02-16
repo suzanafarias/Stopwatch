@@ -12,12 +12,12 @@ let errorStatus = false;
 const errorDisplayOn = () => {
     const error= document.getElementById(`error-menssage`);
     error.style.display = 'inline-block';
-}
+};
 
 const errorDisplayOff = () => {
     const error= document.getElementById(`error-menssage`);
     error.style.display = 'none';
-}
+};
 
 playButton.addEventListener('click', () => {   
     errorDisplayOff();
@@ -26,9 +26,9 @@ playButton.addEventListener('click', () => {
         startStopwatch();
     }else{
        pauseStopwatch();
-    }
+    };
     errorStatus = false;
-})
+});
  
 const startStopwatch = () => {
    const tags = document.querySelectorAll('li');
@@ -36,14 +36,14 @@ const startStopwatch = () => {
    counting = setInterval(counter,1000);
    const value = playButton.setAttribute('value', 'pause');
    img.setAttribute('src','img/pause.png');
-   stopwatch.setAttribute('value', `${tags.length}` );
-}
+   stopwatch.setAttribute('value', `${tags.length+1}` );
+};
  
 const counter = () => {
    seconds++;
    conditionals();
    stopwatch.innerHTML = `${formatedNumber(hours)}:${formatedNumber(minutes)}:${formatedNumber(seconds)}`;
-} 
+};
  
 const conditionals = () => {
    if(seconds == 60){
@@ -53,15 +53,15 @@ const conditionals = () => {
        hours++;
        minutes = 0;
        seconds = 0;
-   }
-}
+   };
+};
  
 const formatedNumber = (num) => {
    while(num < 10){
        return ('0'+num)
-   }
-   return num
-}
+   };
+   return num;
+};
   
 const pauseStopwatch = () => {
    errorDisplayOff();
@@ -69,10 +69,9 @@ const pauseStopwatch = () => {
  
    img.setAttribute('src','img/play.png');
    const value = playButton.setAttribute('value', 'play'); 
-}
+};
  
 const restartButton = document.getElementById(`restart`);
-
 restartButton.addEventListener('click', () => {
    clearInterval(counting);
    stopwatch.innerHTML =`00:00:00`;
@@ -84,52 +83,50 @@ restartButton.addEventListener('click', () => {
    img.setAttribute('src','img/play.png');
    playButton.setAttribute('value', 'play');
    errorDisplayOff();
-})
+});
 
 let totalTags = [];
+let stopValue = stopwatch.getAttribute('value');
 
-recorderButton.addEventListener('click', () => {
-    pauseStopwatch();
-    findError(stopwatch.innerHTML);
+recorderButton.addEventListener('click', () => {  
+    lapError(stopwatch.innerHTML);
     LapRecordError();
-
-    var tags = document.querySelectorAll('li');
-    var ul = document.getElementById(`laps-list`); 
-    //var ulValue =ul.getAttribute('value');
-    var li = document.createElement('li');
-    var id = 0;
-    var errorElement;
-
-
+    
+    let tags = document.querySelectorAll('li');
+    let ul = document.getElementById(`laps-list`); 
+    let li = document.createElement('li');
+    let id = 0;
+    
+    //if there is no error, a new li with a new value will be created.
     if(errorStatus == false){
         li.innerHTML = stopwatch.innerHTML;
         ul.appendChild(li);
         li.setAttribute('value', id);
         totalTags.push(li);  
-
-    }
+    };
 
     for(let id = 1; id <= tags.length; id++){
         li.setAttribute('value', id);
-    }
+    };
 
-    stopwatch.setAttribute('value', totalTags.length);   
-})
+   stopwatch.setAttribute('value', totalTags.length+1); 
+});
 
-const findError = (stopwatch) => {
+const lapError = (stopwatch) => {
     if (stopwatch == '00:00:00'){
         recorderButton.removeEventListener('click', () => {})
         errorStatus = true;
         errorDisplayOn();
-    }
-}
+    };
+};
 
 const LapRecordError = () => {
-    const stopwatchValue = stopwatch.getAttribute('value');
+    var stopwatchValue = stopwatch.getAttribute('value');
+    var ul = document.getElementById(`laps-list`); 
 
-    if(stopwatchValue == totalTags.length){
-        recorderButton.removeEventListener('click', () => {})
+    if((ul.lastChild.innerHTML == stopwatch.innerHTML) && (stopwatchValue == ul.lastChild.value +1) ){
+     recorderButton.removeEventListener('click', () => {})
         errorStatus = true;
         errorDisplayOn();
-    }
-}
+    };
+};
